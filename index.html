@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Pro tebe ❤️</title>
+
 <style>
 body {
   background: linear-gradient(135deg, #ff9a9e, #fad0c4);
@@ -22,19 +23,32 @@ body {
 }
 
 button {
-  background: white;
-  color: #ff4b5c;
   border: none;
   padding: 15px 25px;
   font-size: 18px;
   border-radius: 10px;
   cursor: pointer;
+  margin: 10px;
+}
+
+#yesBtn {
+  background: white;
+  color: #ff4b5c;
+  transition: 0.2s;
+}
+
+#noBtn {
+  background: #ff4b5c;
+  color: white;
 }
 
 .hidden {
   display: none;
+}
+
+#message {
   margin-top: 20px;
-  font-size: 20px;
+  font-size: 22px;
 }
 </style>
 </head>
@@ -42,18 +56,53 @@ button {
 <body>
 
 <div class="card">
-  <h1>Šťastného Valentýna ❤️</h1>
-  <p>Mám pro tebe malé překvapení…</p>
-  <button onclick="showLove()">Klikni sem</button>
-  <div id="love" class="hidden">
-    Jsi ta nejlepší věc, co mě potkala. 💖<br>
-    Miluju tě víc každým dnem.
-  </div>
+
+<h1>Šťastného Valentýna ❤️</h1>
+<p>Mám pro tebe otázku…</p>
+
+<button onclick="start()">Klikni sem</button>
+
+<div id="choice" class="hidden">
+  <p>Budeš moje valentýnka? 💘</p>
+  <button id="yesBtn" onclick="yes()">Ano</button>
+  <button id="noBtn" onclick="no()">Ne</button>
+</div>
+
+<div id="message" class="hidden">
+  Jsi ta nejlepší věc, co mě potkala. 💖<br>
+  Miluju tě víc každým dnem. <br>
+  A těš se na něděli.
+</div>
+
 </div>
 
 <script>
-function showLove() {
-  document.getElementById("love").classList.remove("hidden");
+let yesSize = 18;
+let noClicks = 0;
+
+function start() {
+  document.getElementById("choice").classList.remove("hidden");
+}
+
+function no() {
+  noClicks++;
+
+  // zvětšování ANO
+  yesSize += 8;
+  document.getElementById("yesBtn").style.fontSize = yesSize + "px";
+
+  // zmenšování NE
+  let noBtn = document.getElementById("noBtn");
+  noBtn.style.opacity = 1 - (noClicks * 0.2);
+
+  if (noClicks >= 5) {
+    noBtn.style.display = "none";
+  }
+}
+
+function yes() {
+  document.getElementById("choice").classList.add("hidden");
+  document.getElementById("message").classList.remove("hidden");
 }
 </script>
 
