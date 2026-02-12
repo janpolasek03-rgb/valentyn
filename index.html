@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<title>Pro tebe ❤️</title>
+<style>
+body {
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding-top: 80px;
+  color: white;
+}
+
+.card {
+  background: rgba(255,255,255,0.2);
+  padding: 40px;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 400px;
+  margin: auto;
+}
+
+button {
+  background: white;
+  color: #ff4b5c;
+  border: none;
+  padding: 15px 25px;
+  font-size: 18px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+  margin-top: 20px;
+  font-size: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <h1>Šťastného Valentýna ❤️</h1>
+  <p>Mám pro tebe malé překvapení…</p>
+  <button onclick="showLove()">Klikni sem</button>
+  <div id="love" class="hidden">
+    Jsi ta nejlepší věc, co mě potkala. 💖<br>
+    Miluju tě víc každým dnem.
+  </div>
+</div>
+
+<script>
+function showLove() {
+  document.getElementById("love").classList.remove("hidden");
+}
+</script>
+
+</body>
+</html>
